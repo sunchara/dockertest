@@ -9,7 +9,6 @@ RUN git clone https://github.com/ebiggers/libdeflate.git
 
 #bcftools    biobambam   htslib    libdeflate  samtools
 
-
 WORKDIR /libdeflate
 RUN make \
   && make install
