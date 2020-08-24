@@ -1,5 +1,12 @@
 # dockertest
 
+Dockerfile для создания контейнера со сборкой
+bcftools
+htslib
+libdeflate
+samtools в /SOFT
+
+
 собираем проект
 
 
