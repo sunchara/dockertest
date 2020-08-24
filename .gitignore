@@ -1,4 +1,2 @@
 *.txt
-tmp
 dockerfile2
-!/dockerfile
