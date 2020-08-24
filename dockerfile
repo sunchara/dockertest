@@ -7,7 +7,7 @@ RUN git clone https://github.com/samtools/bcftools.git
 RUN git clone https://github.com/samtools/htslib.git
 RUN git clone https://github.com/ebiggers/libdeflate.git
 
-#bcftools    biobambam   htslib    libdeflate  samtools
+#bcftools   htslib    libdeflate  samtools
 
 WORKDIR /libdeflate
 RUN make \
