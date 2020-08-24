@@ -33,3 +33,5 @@ RUN autoheader && \
     ./configure  --prefix=/SOFT && \
     make && \
     make install
+
+WORKDIR /
