@@ -21,7 +21,7 @@ RUN git clone https://github.com/samtools/htslib.git
 WORKDIR  /SOURCES/htslib
 RUN autoheader && \
     autoconf && \
-    ./configure --with-libdeflate --prefix=/SOFT --exec_prefix=/htslib && \
+    ./configure --with-libdeflate --bindir=/SOFT && \
     make && \
     make install
 
@@ -30,7 +30,7 @@ RUN git clone https://github.com/samtools/bcftools.git
 WORKDIR /SOURCES/bcftools
 RUN autoheader && \
     autoconf && \
-    ./configure  --prefix=/SOFT --exec_prefix=/bcftools && \
+    ./configure  --bindir=/SOFT && \
     make && \
     make install
 
@@ -40,7 +40,7 @@ RUN git clone https://github.com/samtools/samtools.git
 WORKDIR /SOURCES/samtools
 RUN autoheader && \
     autoconf && \
-    ./configure  --prefix=/SOFT --exec_prefix=/samtools && \
+    ./configure  --bindir=/SOFT && \
     make && \
     make install
 
