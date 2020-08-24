@@ -9,28 +9,38 @@ RUN git clone https://github.com/ebiggers/libdeflate.git
 
 #bcftools   htslib    libdeflate  samtools
 
-WORKDIR /libdeflate
+
+WORKDIR /SOURCES
+RUN git clone https://github.com/ebiggers/libdeflate.git
+WORKDIR /SOURCES/libdeflate
 RUN make \
   && make install
 
-WORKDIR /htslib
+WORKDIR  /SOURCES
+RUN git clone https://github.com/samtools/htslib.git
+WORKDIR  /SOURCES/htslib
 RUN autoheader && \
     autoconf && \
-    ./configure --with-libdeflate --prefix=/SOFT && \
+    ./configure --with-libdeflate --prefix=/SOFT --exec_prefix=/htslib && \
     make && \
     make install
 
-WORKDIR /bcftools
+WORKDIR /SOURCES
+RUN git clone https://github.com/samtools/bcftools.git
+WORKDIR /SOURCES/bcftools
 RUN autoheader && \
     autoconf && \
-    ./configure  --prefix=/SOFT && \
+    ./configure  --prefix=/SOFT --exec_prefix=/bcftools && \
     make && \
     make install
 
-WORKDIR /samtools
+
+WORKDIR  /SOURCES
+RUN git clone https://github.com/samtools/samtools.git
+WORKDIR /SOURCES/samtools
 RUN autoheader && \
     autoconf && \
-    ./configure  --prefix=/SOFT && \
+    ./configure  --prefix=/SOFT --exec_prefix=/samtools && \
     make && \
     make install
 
